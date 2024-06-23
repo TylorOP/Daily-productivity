@@ -1,0 +1,60 @@
+user_input=input("enter any number  ")
+
+obj = re.fullmatch('^(?:\+91\s?|0?91\s?)?[7-9]\d{9}$',user_input)
+
+if obj:
+    print("valid number:",user_input)
+else:
+    print("invalid mobile number")
+
+
+Possibility output:
++917123456789
++91 7123456789
++91 9876543210
+0917123456789
+091 7123456789
+091 9876543210
+7123456789
+917043567863
+91 7658956120
+
+invalid number:
++910712345678
+
+"""
+
+^ : Asserts the start of the string.
+
+(?: ... ): The ?: inside the parentheses tells the regex engine to group the enclosed pattern without capturing it for back-referencing. 
+This is useful when you need to group parts of your regex for applying quantifiers or alternation but don't need to reference the matched group later.
+
+: by itself is just a literal colon and matches the colon character in the text.
+?: is used within parentheses to create a non-capturing group in a regex pattern.
+
+\+91 : matches the exact sequence +91.
+
+? : ? means atmost one (it will give zero or only one)
+
+\s? : As \s is a space character and followed by ? which means give output with space or without space
+(you can see the first two output)
+
+| : or operator    (?:\+91\s?|0?91\s?)    \+91\s?  or 0?91\s?
+
+0? : means with zero or without zero
+
+similarly
+()? : this means give combination with or without that combination [ you write in parenthesis () ]
+[7-9] : means give 7 or 8 or 9
+\d : give digit
+{9} : limit means in our above regex give any 9 digits only
+
+$: Asserts the end of the string.
+"""
+
+summary:
+This regex validates Indian phone numbers that can optionally start with ('+91' or '+91 ') or ('091' or '091 ')  This is optional and
+then single digit from 7 to 8 
+then any 9 digit .
+
+

@@ -16,3 +16,5 @@ def customer_csv():
 def current_path():
     path = path = os.path.dirname(os.path.abspath(__file__))
     return path
+
+#you can write os.path.dirname(__file__)

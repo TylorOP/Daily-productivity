@@ -15,3 +15,5 @@ def product_csv():
 def current_path():
     path = os.path.dirname(os.path.abspath(__file__))# path = os.getcwd()
     return path
+
+#you can write os.path.dirname(__file__)

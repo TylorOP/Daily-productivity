@@ -18,3 +18,7 @@ for element in [pd_csv,cus_csv,demo_csv]:
         all_csv.append(i)
 
 print(all_csv)
+
+# import os
+# print(os.getcwd())
+# print(os.path.dirname(os.path.abspath(__file__)))

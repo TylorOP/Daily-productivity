@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHUB'S SHOW</title>
+    <style>
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            position: relative; /* Allows absolute positioning of bubbles */
+        }
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed; /* Keep header fixed at the top */
+            width: 100%;
+            z-index: 1000; /* Ensure it stays on top of other elements */
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+                background: linear-gradient(to bottom, #808080, rgba(128, 128, 128, 0.8));
+ /* Teal to faded teal */
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            font-size: 2em;
+            margin-top: 60px; /* Push down for fixed header */
+        }
+        .banner {
+            background-color: #A9A9A9; /* Background color for the banner */
+            height: 300px; /* Height for the banner */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            margin: 20px 0; /* Space above and below */
+            opacity: 0.8; /* Faded appearance */
+        }
+        .bannerer {
+            background-color: #C0C0C0; /* Background color for the banner */
+            height: 300px; /* Height for the banner */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            margin: 20px 0; /* Space above and below */
+            opacity: 0.8; /* Faded appearance */
+
+        }
+        .footer {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Floating bubble styles */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.7);
+            opacity: 0.5;
+            pointer-events: none; /* Ensures bubbles don't interfere with interactions */
+            animation: float 6s infinite; /* Animate bubble floating */
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0); /* Start position */
+            }
+            100% {
+                transform: translateY(-50px); /* Move up */
+            }
+        }
+
+        /* Sports shapes */
+        .sport-shape {
+            width: 80px;
+            height: 80px;
+            display: inline-block;
+            margin: 10px;
+            background-size: cover;
+        }
+        .basketball {
+            background-image: url('https://via.placeholder.com/80?text=🏀'); /* Placeholder for a basketball */
+        }
+        .soccer-ball {
+            background-image: url('https://via.placeholder.com/80?text=⚽'); /* Placeholder for a soccer ball */
+        }
+        .tennis-ball {
+            background-image: url('https://via.placeholder.com/80?text=🎾'); /* Placeholder for a tennis ball */
+        }
+    </style>
+</head>
+<body>
+
+<header id="header">
+    <h1>SHUB'S SHOW</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<script>
+    const header = document.getElementById('header');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            header.style.top = "-100px"; // Hide header when scrolling down
+        } else {
+            header.style.top = "0"; // Show header when scrolling up
+        }
+        lastScrollTop = scrollTop;
+    });
+</script>
+
+<div class="hero">
+    <h2>Just Do It</h2>
+</div>
+
+<div class="banner">
+    <h2>Featured Products</h2>
+</div>
+
+    <div class="bannerer">
+        <h2>Winning Isn't Comfortable</h2>
+    </div>
+    <h3 style="margin-left: 20px;">More Information</h3>
+    <p style="margin-left: 20px;" > Contact to our team</p>
+    <img src="https://via.placeholder.com/600x300" alt="Placeholder Image" style="width: 100%; height: auto; margin-top: 20px;">
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 SHUB'S SHOW. All rights reserved.</p>
+</div>
+
+<script>
+    const numberOfBubbles = 20; // Change this to create more or fewer bubbles
+    const body = document.body;
+
+    for (let i = 0; i < numberOfBubbles; i++) {
+        const bubble = document.createElement('div');
+        const size = Math.random() * 60 + 20; // Bubble size between 20px and 80px
+        const left = Math.random() * 100; // Random left position percentage
+        const top = Math.random() * 100; // Random top position percentage
+        const animationDuration = Math.random() * 5 + 4; // Random duration between 4s and 9s
+        const animationDirection = Math.random() < 0.5 ? 'normal' : 'reverse'; // Randomly choose direction
+
+        bubble.className = 'bubble';
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${left}vw`;
+        bubble.style.top = `${top}vh`;
+        bubble.style.animationDuration = `${animationDuration}s`;
+        bubble.style.animationName = animationDirection === 'normal' ? 'float' : 'float-reverse'; // Apply animation direction
+
+        body.appendChild(bubble);
+    }
+
+    // Keyframes for reverse animation
+    const styleSheet = document.styleSheets[0];
+    styleSheet.insertRule(`
+        @keyframes float-reverse {
+            0% {
+                transform: translateY(0); /* Start position */
+            }
+            100% {
+                transform: translateY(50px); /* Move down */
+            }
+    }`, styleSheet.cssRules.length);
+</script>
+
+</body>
+</html>

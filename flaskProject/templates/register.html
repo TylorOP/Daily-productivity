@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" align="center">
+    <h1> Registration Form</h1>
+<form method=post>
+
+  <dl>
+    username : {{ form.username}}
+      <p></p>
+    email : {{ form.email}}
+      <p></p>
+    password : {{ form.password}}
+      <p></p>
+    confirm password : {{ form.confirm}}
+      <p></p>
+    terms : {{ form.accept_tos}}
+      <p></p>
+  </dl>
+  <p><input type=submit value=Register>
+</form>
+    </div>
+</body>
+</html>
+
+

@@ -1,24 +1,15 @@
-from product.product_main import product_csv
-from customer.customer_main import customer_csv
+from copper.copper_merge_file import copper_file
+import os
+import shutil
+copper_csv,copper_other,copper_path = copper_file()
 
-# print("product csv",product_csv())
-# print("customer csv",customer_csv())
-pd_csv=product_csv()
+des_path = '/Users/thispc/Desktop/untitled folder/osmodule/untitled folder'
 
-cus_csv=customer_csv()
+os.chdir(copper_path)
 
-# pd_csv.extend(cus_csv)
-# print(pd_csv)
-demo_csv = ['test.csv','sample.csv','bot.csv','happy.csv','2.csv']
-
-all_csv =[]
-
-for element in [pd_csv,cus_csv,demo_csv]:
-    for i in element:
-        all_csv.append(i)
-
-print(all_csv)
-
-# import os
-# print(os.getcwd())
-# print(os.path.dirname(os.path.abspath(__file__)))
+for file in copper_csv:
+    shutil.copy(file, des_path)
+    if os.path.exists(file):
+        os.remove(file)
+    else:
+       print('file not present')

@@ -1,0 +1,14 @@
+ERROR:root:[Errno 17] File exists: 'any.txt'
+ERROR:root:[Errno 17] File exists: 'any.txt'
+Traceback (most recent call last):
+  File "/Users/thispc/PycharmProjects/module_copper_boxite/main.py", line 5, in <module>
+    with open('any.txt', 'x') as fp:
+FileExistsError: [Errno 17] File exists: 'any.txt'
+CRITICAL:root:file prsent in the directory
+2024-11-09 13:01:32,256 - root - ERROR - [Errno 17] File exists: 'any.txt'
+2024-11-09 13:01:32,256 - root - ERROR - [Errno 17] File exists: 'any.txt'
+Traceback (most recent call last):
+  File "/Users/thispc/PycharmProjects/module_copper_boxite/main.py", line 5, in <module>
+    with open('any.txt', 'x') as fp:
+    FileExistsError: [Errno 17] File exists: 'any.txt'
+    2024-11-09 13:01:32,256 - root - CRITICAL - file prsent in the directory

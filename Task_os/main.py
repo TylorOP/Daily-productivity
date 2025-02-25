@@ -49,10 +49,6 @@ def create_city_dir(city_list):
         os.mkdir(city_path + '/' + city)
 
 
-
-def file_path():
-    pass
-
 def processed_csv_file_dump(csv_file):
     path=r'./input_files'
     os.chdir(path)
